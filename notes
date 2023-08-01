@@ -1,0 +1,39 @@
+1) create a virtualenviroment --> terminal --> virtualenv myenv
+2) navigate to the requirements.txt file and install it into that virtualenv that you just created using pip install requirements.txt
+3) do what you want on the frontend side
+4) to actually open project you must use django web server -- to do that on the same terminal (cd) into backend folder
+5) the idea is that the terminal must see directly the file ( manage.py ) then type the command ---> python manage.py runserver
+
+
+NOTE:
+
+the previous steps will result into an error due to not having the right database
+
+to solve the issue follow the following steps:
+
+1) install postgres and pgadmin on your global system
+2) make a super user --> make sure to remember the username and password
+3) open pgadmin and make a new database --> database name must be the same as the one in settings.py DATABASES section. username and password in that file
+must be the same as the one you got for your user.
+
+so hypothetically speaking i have an existing user on my laptop with those credientials
+
+username = manager
+password = manager
+
+if i want to access the database for a specific project, first i must create the database in the pgadmin ( same name in settings.py)
+
+i must change the USER and PASSWORD values in settings.py DATABASES section to the appropriate ones to the one i got
+
+
+now that we created the database and now we can access it, we must perform 1 command before actually get our website online to work on it.
+
+
+the command is ( python manage.py makemigrations then the next command is --> python manage.py migrate)
+
+
+--------------------
+
+steps to do always on every clone / pull:
+1) change USER and PASSWORD in the settings.py
+2) python manage.py makemigrations and then python manage.py migrate 
